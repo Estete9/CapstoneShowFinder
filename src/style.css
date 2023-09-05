@@ -1,6 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 body {
-  background-color: bisque;
   font-family: 'Lato', sans-serif;
+}
+
+#show-header-section {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+#show-poster {
+  max-height: 180px;
+  width: auto;
+  top: 50%;
+  left: 50%;
+}
+
+#close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+#show-description-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#show-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#show-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 50px;
+}
+
+#show-details .show-detail-item {
+  text-align: center;
+  max-width: 145px;
+}
+
+#comments-popup-wrapper > section {
+  gap: 20px;
+  padding: 15px 20px;
+}
+
+#comments-popup-wrapper > #show-header-section {
+  padding: 35px 20px;
 }
