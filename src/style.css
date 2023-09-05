@@ -1,3 +1,55 @@
-body {
-  background-color: bisque;
+#cardboards {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
+
+#cardboard {
+  width: 70%;
+  display: grid;
+  row-gap: 10px;
+  justify-items: center;
+}
+
+#cardboard-image {
+  width: 50%;
+  align-self: center;
+}
+
+#cardboard-superior {
+  width: 50%;
+  display: flex;
+}
+
+#cardboard-title {
+  width: 100%;
+  margin: 0;
+}
+
+#cardboard-inferior {
+  width: 50%;
+  display: grid;
+  justify-items: center;
+}
+
+#cardboard-heart-image {
+  width: 40%;
+}
+
+#cardboard-likes {
+  margin: 1vw 0 0 0;
+}
+
+#comments-button {
+  width: 15vw;
+  height: 3vw;
+}
+
+#reservations-button {
+  width: 17vw;
+  height: 3vw;
 }
