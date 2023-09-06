@@ -3,10 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wbpack Exercise</title>
+    <title>Show Finder - find your favorite show</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="index.js"></script></head>
   <body>
-    <h1>Hello webpack!</h1>
-    <h2>this is test again right now?</h2>
+    <header class="bg-gray-800 text-white py-4 text-center">
+      <div>
+        <img src="./assets/main_logo.png" id="header-logo" alt="logo" />
+      </div>
+      <ul id="menu">
+        <li class="menu-item selected">shows <span>(100)</span></li>
+      </ul>
+    </header>
+    <main></main>
+    <footer class="bg-gray-800 text-white py-4 text-center">
+      <div class="container mx-auto">
+        <p class="text-sm">
+          Created by <strong class="font-bold">Alvee</strong>,
+          <strong class="font-bold">Esteban</strong>, and
+          <strong class="font-bold">Alex</strong> under MIT License
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
