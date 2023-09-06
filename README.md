@@ -89,10 +89,12 @@ In the root folder, run the script `npm install` to install all the libraries ne
 
 ### Usage
 #### Webpack
-- Run the scripts: `npm run watch-webpack` to only have Webpack watch your files or
+Run the scripts: 
+- `npm run build` to have Webpack build the `dist` folder
+- `npm run watch-webpack` to only have Webpack watch your files or
 - `npm run watch` to watch the tests and Webpack changes
 #### Live Demo
-- Run the script `npm run start` to see a live version of the project
+- Always run the script `npm run build-start` to see a live version of the project and be sure that all your assets and files are bundled by Webpack
 
 
 ### Run tests
