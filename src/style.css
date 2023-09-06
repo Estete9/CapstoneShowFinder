@@ -10,6 +10,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+.hide {
+  display: none;
+}
+
 #show-header-section {
   display: flex;
   position: relative;
@@ -29,10 +33,6 @@ body {
   top: 0;
   right: 0;
   margin: 10px;
-}
-
-.hide {
-  display: none;
 }
 
 #show-description-section {
@@ -153,6 +153,14 @@ header {
 
 .menu-item {
   font-size: 1.1rem;
+}
+
+#comments-popup-wrapper {
+  display: auto;
+}
+
+#cardboards.hide {
+  display: none;
 }
 
 #comments-popup-wrapper > section {
