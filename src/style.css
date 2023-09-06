@@ -10,6 +10,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+#main-section {
+  margin: 5vw 0 5vw 0;
+}
+
 #cardboards {
   list-style-type: none;
   padding: 0;

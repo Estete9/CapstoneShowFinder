@@ -2,6 +2,7 @@ import './style.css';
 import heart from '../assets/heart.png';
 import createCards from './cards.js';
 import populateCards from './utils.js';
+// import { itemsCounter } from './items_counter.js';
 
 createCards();
 
@@ -11,4 +12,9 @@ Array.from(imgHearts).forEach((item) => {
   item.src = heart;
 });
 
-populateCards();
+const titleCards = document.getElementsByClassName('cardboard-title');
+const imgCards = document.getElementsByClassName('cardboard-image');
+const liCards = document.getElementsByClassName('cardboard');
+
+populateCards(titleCards, imgCards, liCards);
+// itemsCounter();
