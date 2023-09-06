@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
 #cardboards {
   list-style-type: none;
   padding: 0;
@@ -54,4 +64,43 @@
 .reservations-button {
   width: 17vw;
   height: 3vw;
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  padding-bottom: 30px;
+}
+
+#menu {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+}
+
+#header-logo {
+  height: 70px;
+  width: auto;
+}
+
+.menu-item {
+  font-size: 1.1rem;
+}
+
+.menu-item.selected {
+  text-decoration: underline;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* -----------------------------------------------------Start  of desktop styling ------------------------------------------------------------------------------------ */
+@media screen and (width >= 768px) {
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15%;
+    padding-bottom: 30px;
+  }
 }
