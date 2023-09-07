@@ -15,45 +15,42 @@ const reservations = () => {
   const movieTvElement = document.getElementById('res-movie-tv');
   const img = document.getElementById('res-movie-image');
 
-  const reservationsContainer = document.getElementById("reservations-container")
+  const reservationsContainer = document.getElementById('reservations-container');
 
   const getReservations = async (id) => {
-    const res = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/NgaD7H5IJk0fYcqyyaMX/reservations?item_id=' + id)
-    const data = await res.json()
+    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/NgaD7H5IJk0fYcqyyaMX/reservations?item_id=${id}`);
+    const data = await res.json();
 
-    let html = ''
+    let html = '';
 
-    if(data && data.length){
-      data?.map(reservations => { 
-        html += `<p> ${reservations.date_start} - ${reservations.date_end} by ${reservations.username}</p>`
-      })
-  
+    if (data && data.length) {
+      data.forEach((reservations) => {
+        html += `<p> ${reservations.date_start} - ${reservations.date_end} by ${reservations.username}</p>`;
+      });
+
       reservationsContainer.innerHTML = html;
     }
+  };
 
-  
-  }
+  const createReservations = async (id) => {
+    const form = document.getElementById('res-form');
 
-  const createReservations = async (id)=> { 
-    const form = document.getElementById("res-form")
+    const resNameInput = document.getElementById('res-name');
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
 
-    var resNameInput = document.getElementById("res-name");
-    var startDateInput = document.getElementById("start-date");
-    var endDateInput = document.getElementById("end-date");
-
-    form.addEventListener('submit', async (e)=> { 
-      e.preventDefault()
-      const username = resNameInput.value 
-      const start = startDateInput.value 
-      const end = endDateInput.value 
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = resNameInput.value;
+      const start = startDateInput.value;
+      const end = endDateInput.value;
 
       try {
-
         const postData = {
           item_id: id,
-          username, 
-          date_start: start, 
-          date_end: end
+          username,
+          date_start: start,
+          date_end: end,
         };
 
         const requestOptions = {
@@ -64,27 +61,26 @@ const reservations = () => {
           body: JSON.stringify(postData),
         };
         const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/NgaD7H5IJk0fYcqyyaMX/reservations', requestOptions);
-    
+
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-  
-        getReservations(id)
+
+        getReservations(id);
       } catch (error) {
         throw new Error('Error found');
       }
-
-    })
-  }
+    });
+  };
 
   function showMoviePopup(e) {
     const id = e.target.getAttribute('show_id');
 
     const currentShow = shows.filter((show) => show.id === parseInt(id, 10))[0];
 
-    getReservations(id)
-    
-    createReservations(id)
+    getReservations(id);
+
+    createReservations(id);
 
     movieTitleElement.innerHTML = currentShow.name;
     movieSummaryElement.innerHTML = `<strong>Summary:</strong> ${currentShow.summary.slice(0, 80)}...`;
