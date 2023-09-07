@@ -4,10 +4,10 @@ class InvolvementApi {
     this.appId = 'G291qOZJqU5Pic49OeDp';
     this.baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
     this.endPoints = {
-      makeApp: '/apps/',
-      likes: `/apps/${this.appId}/likes/`,
-      comments: `/apps/${this.appId}/comments/`,
-      reservations: `/apps/${this.appId}/reservations/`,
+      makeApp: '/apps',
+      likes: `/apps/${this.appId}/likes`,
+      comments: `/apps/${this.appId}/comments`,
+      reservations: `/apps/${this.appId}/reservations`,
     };
   }
 
@@ -28,27 +28,34 @@ class InvolvementApi {
       if (!response.ok) {
         throw new Error('failed to retrieve comments from API');
       }
-      const comments = await response.json();
-      return comments;
+      return responseBody;
     } catch (error) {
       return error.message;
     }
   };
 
   postComment = async (id, name, msg) => {
+    console.log('posting score...');
+    console.log(`${this.baseUrl + this.endPoints.comments}`);
     try {
       const response = await fetch(`${this.baseUrl + this.endPoints.comments}`, {
-        item_id: id.toString(),
-        username: name,
-        comment: msg,
+        method: 'POST',
+        body: JSON.stringify({
+          item_id: id,
+          username: name,
+          comment: msg,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
       });
+      console.log(`response.ok: ${response.ok}`);
       if (!response.ok) {
-        throw new Error('failed to post comment to API');
+        throw new Error('Failed to create a post.');
       }
-      const postResult = await response.json();
-      return postResult;
+      console.log('score posted...');
     } catch (error) {
-      return error.message;
+      console.error('Error creating a post:', error.message);
     }
   };
 
