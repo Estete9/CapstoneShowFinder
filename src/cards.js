@@ -33,6 +33,7 @@ const createCards = () => {
 
     const button2 = document.createElement('button');
     button2.setAttribute('class', 'reservations-button');
+    button2.setAttribute('id', 'showPopup');
     button2.innerHTML = 'Reservations';
 
     div2.appendChild(img2);

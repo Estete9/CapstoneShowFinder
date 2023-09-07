@@ -2,6 +2,7 @@ import './style.css';
 import heart from '../assets/heart.png';
 import createCards from './cards.js';
 import populateCards from './utils.js';
+import reservations from "./modules/reservations.js";
 
 createCards();
 
@@ -12,3 +13,6 @@ Array.from(imgHearts).forEach((item) => {
 });
 
 populateCards();
+
+
+reservations()
