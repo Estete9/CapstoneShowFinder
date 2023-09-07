@@ -2,7 +2,6 @@ import './style.css';
 import heart from '../assets/heart.png';
 import createCards from './cards.js';
 import populateCards from './utils.js';
-// import { itemsCounter } from './items_counter.js';
 
 createCards();
 
@@ -17,4 +16,3 @@ const imgCards = document.getElementsByClassName('cardboard-image');
 const liCards = document.getElementsByClassName('cardboard');
 
 populateCards(titleCards, imgCards, liCards);
-// itemsCounter();
