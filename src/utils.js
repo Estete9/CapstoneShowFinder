@@ -31,10 +31,12 @@ const selectedShows = [];
 selectedIndex.forEach((element) => selectedShows.push(result[element]));
 
 const populateCards = (titleCards, imgCards, liCards) => {
+
   for (let i = 0; i < titleCards.length; i += 1) {
     titleCards[i].innerHTML = selectedShows[i].name;
     imgCards[i].src = selectedShows[i].image.medium;
     liCards[i].id = selectedShows[i].id;
+    reservationsBtn[i].setAttribute('show_id', selectedShows[i].id);
   }
 };
 
