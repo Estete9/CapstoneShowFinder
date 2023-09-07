@@ -7,17 +7,27 @@ class CommentsPopup {
     this.involvementApi = new InvolvementApi();
   }
 
-  openPopup = (e, popupWrapper, cardboards) => {
+  openPopup = async (e, popupWrapper, cardboards) => {
     popupWrapper.querySelector('#show-poster').src = placeholderImg;
     const card = e.target.parentNode;
     popupWrapper.classList.remove('hide');
     cardboards.classList.add('hide');
-    this.populateCard(card.id, popupWrapper);
+    await this.populateCard(card.id, popupWrapper);
   };
 
   populateCard = async (showID, popupWrapper) => {
     const show = await getSingleShow(showID);
     const showDetails = popupWrapper.querySelector('#show-details');
+    const postCommentBtn = popupWrapper.querySelector('#comment-btn');
+
+    postCommentBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const name = popupWrapper.querySelector('#comment-name');
+      const msg = popupWrapper.querySelector('#comment-msg');
+      await this.involvementApi.postComment(showID, name.value, msg.value);
+      name.value = '';
+      msg.value = '';
+    });
 
     popupWrapper.querySelector('#show-poster').src = show.image.medium;
     popupWrapper.querySelector('#show-title').textContent = show.name;
@@ -41,7 +51,7 @@ class CommentsPopup {
       return;
     }
 
-    comments[0].forEach((comment) => {
+    comments.forEach((comment) => {
       showCommentsList.appendChild(
         this.createListItem(comment.creation_date, comment.username, comment.comment),
       );
