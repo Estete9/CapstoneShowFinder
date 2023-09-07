@@ -11,6 +11,7 @@ class CommentsPopup {
     const showCommentsList = popupWrapper.querySelector('#comments-list');
     const comments = await this.involvementApi.getComments(showID);
 
+    showCommentsList.innerHTML = '';
     if (!comments.length) {
       const comment = document.createElement('li');
       comment.classList.add('comment-list-item');
