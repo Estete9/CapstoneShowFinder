@@ -24,10 +24,10 @@ Array.from(imgHearts).forEach((item) => {
   item.src = heart;
 });
 
-const titleCards = document.getElementsByClassName('cardboard-title');
 const imgCards = document.getElementsByClassName('cardboard-image');
+const titleCards = document.getElementsByClassName('cardboard-title');
 const liCards = document.getElementsByClassName('cardboard');
-
-populateCards(titleCards, imgCards, liCards);
+const reservationsBtn = document.getElementsByClassName('reservations-button');
+populateCards(titleCards, imgCards, liCards, reservationsBtn);
 
 reservations();
