@@ -19,7 +19,7 @@ const revervations = () => {
     const id = e.target.getAttribute('show_id');
 
     const currentShow = shows.filter((show) => show.id === parseInt(id, 10))[0];
-    console.log(currentShow);
+
 
     movieTitleElement.innerHTML = currentShow.name;
     movieSummaryElement.innerHTML = `<strong>Summary:</strong> ${currentShow.summary.slice(0, 80)}...`;
