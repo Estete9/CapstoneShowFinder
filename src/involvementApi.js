@@ -20,9 +20,11 @@ class InvolvementApi {
   getComments = async (showId) => {
     try {
       const response = await fetch(`${this.baseUrl + this.endPoints.comments}?item_id=${showId}`);
-      if (response.status === 400) {
+      const responseBody = await response.json();
+      if (responseBody.error && responseBody.error.message) {
         return [];
       }
+
       if (!response.ok) {
         throw new Error('failed to retrieve comments from API');
       }
@@ -56,3 +58,4 @@ class InvolvementApi {
 }
 
 export default InvolvementApi;
+
