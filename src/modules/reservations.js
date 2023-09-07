@@ -1,6 +1,6 @@
-import { shows } from '../utils';
+import { shows } from '../utils.js';
 
-const revervations = () => {
+const reservations = () => {
   const closePopupButton = document.getElementById('closePopup');
   const moviePopup = document.getElementById('moviePopup');
 
@@ -42,4 +42,4 @@ const revervations = () => {
   closePopupButton.addEventListener('click', closeMoviePopup);
 };
 
-export default revervations;
+export default reservations;
