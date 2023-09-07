@@ -22,7 +22,7 @@ body {
 }
 
 #show-poster {
-  max-height: 300px;
+  max-height: 200px;
   width: auto;
   top: 50%;
   left: 50%;
@@ -32,7 +32,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 10px;
+  margin: 15px;
   cursor: pointer;
 }
 
@@ -158,6 +158,8 @@ header {
 
 #comments-popup-wrapper {
   display: block;
+  margin: 30px 30px;
+  background-color: #d6d6d6db;
 }
 
 #comments-popup-wrapper.hide {
@@ -205,5 +207,14 @@ header {
 
   #post-comment-form {
     padding: 0 30%;
+  }
+
+  #show-poster {
+    max-height: 300px;
+  }
+
+  #comments-popup-wrapper {
+    margin: 30px 25%;
+    padding: 10px;
   }
 }

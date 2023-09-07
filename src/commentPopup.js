@@ -1,4 +1,5 @@
 import getSingleShow from './getSingleShow.js';
+import placeholderImg from '../assets/poster-placeholder.png';
 
 class CommentsPopup {
   populateCards = async (showID, popupWrapper) => {
@@ -13,6 +14,7 @@ class CommentsPopup {
   };
 
   openPopup = (e, popupWrapper, cardboards) => {
+    popupWrapper.querySelector('#show-poster').src = placeholderImg;
     const card = e.target.parentNode;
     popupWrapper.classList.remove('hide');
     cardboards.classList.add('hide');
@@ -26,3 +28,4 @@ class CommentsPopup {
 }
 
 export default CommentsPopup;
+
