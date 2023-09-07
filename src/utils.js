@@ -1,3 +1,5 @@
+import itemsCounters from './items_counter.js';
+
 const fullPath = 'https://api.tvmaze.com/shows';
 
 const getAllShows = async () => {
@@ -15,6 +17,8 @@ const getAllShows = async () => {
 
 const result = await getAllShows();
 const qtyShows = result.length;
+
+itemsCounters(result.length);
 
 const getRandomInt = (max) => Math.floor(Math.random() * max);
 
