@@ -38,7 +38,6 @@ const createCards = (commentPopup, popupWrapper, cardboards) => {
     button2.setAttribute('id', 'showPopup');
     button2.innerHTML = 'Reservations';
 
-
     div2.appendChild(img2);
     div2.appendChild(p);
     div1.appendChild(h3);
@@ -46,7 +45,7 @@ const createCards = (commentPopup, popupWrapper, cardboards) => {
     li.appendChild(img1);
     li.appendChild(div1);
     li.appendChild(buttonComments);
-    li.appendChild(buttonReservations);
+    li.appendChild(button2);
     cardboards.appendChild(li);
   }
 };

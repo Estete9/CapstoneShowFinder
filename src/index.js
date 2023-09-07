@@ -9,7 +9,6 @@ import reservations from './modules/reservations.js';
 
 import CommentsPopup from './commentPopup.js';
 
-
 const showPosterImg = document.getElementById('show-poster');
 const popupCloseBtn = document.getElementById('close-btn');
 const imgHearts = document.getElementsByClassName('cardboard-heart-image');
@@ -30,4 +29,3 @@ Array.from(imgHearts).forEach((item) => {
 populateCards();
 
 reservations();
-
