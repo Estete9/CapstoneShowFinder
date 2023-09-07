@@ -160,6 +160,10 @@ header {
   display: block;
 }
 
+#comments-popup-wrapper.hide {
+  display: none;
+}
+
 #cardboards.hide {
   display: none;
 }
