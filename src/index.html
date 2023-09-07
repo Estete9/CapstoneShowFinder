@@ -54,12 +54,15 @@
             <div class="text-center mb-4">
                 <strong class="text-xl">Add a Reservation</strong>
             </div>
-            <input class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="Your name">
-            <input class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="Start Date (mm/dd/yyyy)" id="start-date">
-            <input class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="End Date (mm/dd/yyyy)" id="end-date">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Reserve
-          </button>
+            <form action="" id="res-form">
+              <input id="res-name" required class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="Your name">
+              <input id="start-date" required class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="Start Date (mm/dd/yyyy)" id="start-date">
+              <input id="end-date" required class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="End Date (mm/dd/yyyy)" id="end-date">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Reserve
+            </button>
+            </form>
+         
           
         </div>
         
