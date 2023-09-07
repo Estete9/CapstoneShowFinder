@@ -4,9 +4,7 @@ import closeBtn from '../assets/close-btn.png';
 import heart from '../assets/heart.png';
 import createCards from './cards.js';
 import populateCards from './utils.js';
-
 import reservations from './modules/reservations.js';
-
 import CommentsPopup from './commentPopup.js';
 
 const showPosterImg = document.getElementById('show-poster');
@@ -26,6 +24,10 @@ Array.from(imgHearts).forEach((item) => {
   item.src = heart;
 });
 
-populateCards();
+const imgCards = document.getElementsByClassName('cardboard-image');
+const titleCards = document.getElementsByClassName('cardboard-title');
+const liCards = document.getElementsByClassName('cardboard');
+const reservationsBtn = document.getElementsByClassName('reservations-button');
+populateCards(titleCards, imgCards, liCards, reservationsBtn);
 
 reservations();
