@@ -57,6 +57,7 @@ class CommentsPopup {
         this.createListItem(comment.creation_date, comment.username, comment.comment),
       );
     });
+
   };
 
   closePopup = (popupWrapper, cardboards) => {

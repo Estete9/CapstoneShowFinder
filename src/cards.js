@@ -33,9 +33,10 @@ const createCards = (commentPopup, popupWrapper, cardboards) => {
       commentPopup.openPopup(e, popupWrapper, cardboards);
     });
 
-    const buttonReservations = document.createElement('button');
-    buttonReservations.setAttribute('class', 'reservations-button');
-    buttonReservations.innerHTML = 'Reservations';
+    const button2 = document.createElement('button');
+    button2.setAttribute('class', 'reservations-button');
+    button2.setAttribute('id', 'showPopup');
+    button2.innerHTML = 'Reservations';
 
     div2.appendChild(img2);
     div2.appendChild(p);
@@ -44,7 +45,7 @@ const createCards = (commentPopup, popupWrapper, cardboards) => {
     li.appendChild(img1);
     li.appendChild(div1);
     li.appendChild(buttonComments);
-    li.appendChild(buttonReservations);
+    li.appendChild(button2);
     cardboards.appendChild(li);
   }
 };
