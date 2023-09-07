@@ -36,9 +36,9 @@ const populateCards = () => {
     titleCards[i].innerHTML = selectedShows[i].name;
     imgCards[i].src = selectedShows[i].image.medium;
     liCards[i].id = selectedShows[i].id;
-    reservationsBtn[i].setAttribute('show_id',selectedShows[i].id) ;
+    reservationsBtn[i].setAttribute('show_id', selectedShows[i].id);
   }
 };
-export const shows = selectedShows
+export const shows = selectedShows;
 
 export default populateCards;
