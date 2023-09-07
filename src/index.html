@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-
     <header class="bg-gray-800 text-white py-4 text-center">
       <div>
         <img src="assets/main_logo.png" id="header-logo" alt="logo" />
@@ -16,10 +15,54 @@
         <li class="menu-item selected">shows <span>(100)</span></li>
       </ul>
     </header>
+
     <main id="main-section" class="my-[100px]">
+
+
       <!-- cardboards -->
       <ul id="cardboards"></ul>
+      <!-- cardboards -->
+      <!-- comments pop-up -->
+      <article id="comments-popup-wrapper" class="hide">
+        <section id="show-header-section">
+          <img id="show-poster" alt="show's poster" />
+          <img id="close-btn" alt="pop-up close button" />
+        </section>
+        <section id="show-description-section">
+          <h1 id="show-title" class="section-title"></h1>
+          <ul id="show-details">
+            <li class="show-detail-item"></li>
+            <li class="show-detail-item"></li>
+            <li class="show-detail-item"></li>
+            <li class="show-detail-item"></li>
+          </ul>
+        </section>
+        <section id="show-comments-section">
+          <h3 id="comments" class="section-title">Comments <span>(2)</span></h3>
+          <ul id="comments-list">
+            <li class="comment-list-item">03/11/2021 Alex: I'd love to but it!</li>
+            <li class="comment-list-item">03/01/2020 Mia: It's too expensive</li>
+          </ul>
+        </section>
+        <section id="post-comment-section">
+          <form id="post-comment-form" action="">
+            <h3 id="post-comment-title" class="section-title">Add a comment</h3>
+            <input id="comment-name" type="text" placeholder="Your name" required />
+            <textarea
+              name="msg-content"
+              id="comment-msg"
+              cols="30"
+              rows="4"
+              placeholder="Your insights..."
+              required
+            ></textarea>
+            <button id="comment-btn">Comment</button>
+          </form>
+        </section>
+      </article>
+      <!-- comments pop-up -->
     </main>
+
     
     <div id="moviePopup" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 hidden">
       <div class="bg-white w-[500px] p-4 md:p-8 max-w-screen-lg rounded-lg shadow-lg overflow-hidden relative"> <!-- Added relative -->
@@ -50,6 +93,7 @@
       </div>
     </div>
     
+
     <footer class="bg-gray-800 text-white py-4 text-center">
       <div class="container mx-auto">
         <p class="text-sm">
