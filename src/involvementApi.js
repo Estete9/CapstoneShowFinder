@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
-class involvementApi {
+class InvolvementApi {
   constructor() {
+    this.appId = 'G291qOZJqU5Pic49OeDp';
     this.baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
-
     this.endPoints = {
       makeApp: '/apps/',
-      likes: '/apps/:app_id/likes/',
-      comments: '/apps/:app_id/comments/',
-      reservations: '/apps/:app_id/reservations/',
+      likes: `/apps/${this.appId}/likes/`,
+      comments: `/apps/${this.appId}/comments/`,
+      reservations: `/apps/${this.appId}/reservations/`,
     };
   }
 
@@ -17,9 +17,12 @@ class involvementApi {
 
   postLike = () => {};
 
-  getComments = async () => {
+  getComments = async (showId) => {
     try {
-      const response = await fetch(`${this.baseUrl + this.endPoints.comments}?item_id=item1`);
+      const response = await fetch(`${this.baseUrl + this.endPoints.comments}?item_id=${showId}`);
+      if (response.status === 400) {
+        return [];
+      }
       if (!response.ok) {
         throw new Error('failed to retrieve comments from API');
       }
@@ -33,7 +36,7 @@ class involvementApi {
   postComment = async (id, name, msg) => {
     try {
       const response = await fetch(`${this.baseUrl + this.endPoints.comments}`, {
-        item_id: id,
+        item_id: id.toString(),
         username: name,
         comment: msg,
       });
@@ -52,4 +55,5 @@ class involvementApi {
   postReservation = () => {};
 }
 
-export default involvementApi;
+export default InvolvementApi;
+
