@@ -28,4 +28,3 @@ class CommentsPopup {
 }
 
 export default CommentsPopup;
-
