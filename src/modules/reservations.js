@@ -15,11 +15,31 @@ const reservations = () => {
   const movieTvElement = document.getElementById('res-movie-tv');
   const img = document.getElementById('res-movie-image');
 
+  const reservationsContainer = document.getElementById("reservations-container")
+
+  const getReservations = async (id) => {
+    const res = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/NgaD7H5IJk0fYcqyyaMX/reservations?item_id=' + id)
+    const data = await res.json()
+
+    let html = ''
+
+    if(data && data.length){
+      data?.map(reservations => { 
+        html += `<p> ${reservations.date_start} - ${reservations.date_end} by ${reservations.username}</p>`
+      })
+  
+      reservationsContainer.innerHTML = html;
+    }
+
+  
+  }
+
   function showMoviePopup(e) {
     const id = e.target.getAttribute('show_id');
 
     const currentShow = shows.filter((show) => show.id === parseInt(id, 10))[0];
 
+    getReservations(id)
 
     movieTitleElement.innerHTML = currentShow.name;
     movieSummaryElement.innerHTML = `<strong>Summary:</strong> ${currentShow.summary.slice(0, 80)}...`;

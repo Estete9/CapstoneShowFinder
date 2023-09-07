@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Show Finder - find your favorite show</title>
     <script src="https://cdn.tailwindcss.com"></script>
+  
   </head>
   <body>
 
@@ -22,7 +23,7 @@
     </main>
     
     <div id="moviePopup" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 hidden">
-      <div class="bg-white w-[500px] p-4 md:p-8 max-w-screen-lg rounded-lg shadow-lg overflow-hidden relative"> <!-- Added relative -->
+      <div class="bg-white w-[500px] h-[90vh] overflow-scroll p-4 md:p-8 max-w-screen-lg rounded-lg shadow-lg overflow-hidden relative"> <!-- Added relative -->
         <button id="closePopup" class="absolute top-2 right-2 md:top-4 md:right-4 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full z-10"> <!-- Added z-10 for stacking order -->
           X
         </button>
@@ -44,8 +45,24 @@
           <div>
             <div class="text-center"> <strong >Revervations (3)</strong></div>
             
-            <p>3/4/2003 - 4/5/2003 by Alvee</p>
+            <div id="reservations-container">
+           
+            </div>
+            
           </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow-md my-4">
+            <div class="text-center mb-4">
+                <strong class="text-xl">Add a Reservation</strong>
+            </div>
+            <input class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="Your name">
+            <input class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="Start Date (mm/dd/yyyy)" id="start-date">
+            <input class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="End Date (mm/dd/yyyy)" id="end-date">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Reserve
+          </button>
+          
+        </div>
+        
         </div>
       </div>
     </div>

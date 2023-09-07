@@ -15,3 +15,4 @@ Array.from(imgHearts).forEach((item) => {
 populateCards();
 
 reservations();
+
