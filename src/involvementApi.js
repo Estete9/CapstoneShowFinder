@@ -4,10 +4,10 @@ class InvolvementApi {
     this.appId = 'G291qOZJqU5Pic49OeDp';
     this.baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
     this.endPoints = {
-      makeApp: '/apps',
-      likes: `/apps/${this.appId}/likes`,
-      comments: `/apps/${this.appId}/comments`,
-      reservations: `/apps/${this.appId}/reservations`,
+      makeApp: '/apps/',
+      likes: `/apps/${this.appId}/likes/`,
+      comments: `/apps/${this.appId}/comments/`,
+      reservations: `/apps/${this.appId}/reservations/`,
     };
   }
 
@@ -20,41 +20,33 @@ class InvolvementApi {
   getComments = async (showId) => {
     try {
       const response = await fetch(`${this.baseUrl + this.endPoints.comments}?item_id=${showId}`);
-      const responseBody = await response.json();
-      if (responseBody.error && responseBody.error.message) {
+      if (response.status === 400) {
         return [];
       }
-
       if (!response.ok) {
         throw new Error('failed to retrieve comments from API');
       }
-      return responseBody;
+      const comments = await response.json();
+      return comments;
     } catch (error) {
       return error.message;
     }
   };
 
   postComment = async (id, name, msg) => {
-    console.log('posting score...');
-    console.log(`${this.baseUrl + this.endPoints.comments}`);
     try {
       const response = await fetch(`${this.baseUrl + this.endPoints.comments}`, {
-        method: 'POST',
-        body: JSON.stringify({
-          item_id: id,
-          username: name,
-          comment: msg,
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
+        item_id: id.toString(),
+        username: name,
+        comment: msg,
       });
       if (!response.ok) {
-        throw new Error('Failed to create a post.');
+        throw new Error('failed to post comment to API');
       }
-      console.log('comment posted...');
+      const postResult = await response.json();
+      return postResult;
     } catch (error) {
-      console.error('Error creating a post:', error.message);
+      return error.message;
     }
   };
 
@@ -64,3 +56,4 @@ class InvolvementApi {
 }
 
 export default InvolvementApi;
+
