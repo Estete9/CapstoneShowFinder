@@ -17,10 +17,9 @@ const createCards = (commentPopup, popupWrapper, cardboards) => {
     const div2 = document.createElement('div');
     div2.setAttribute('class', 'cardboard-inferior');
 
-    const img2 = document.createElement('img');
-    img2.setAttribute('class', 'cardboard-heart-image');
-    img2.setAttribute('alt', 'img');
-    img2.setAttribute('src', '');
+    const buttonHeart = document.createElement('button');
+    buttonHeart.setAttribute('class', 'cardboard-heart-button');
+    buttonHeart.innerHTML = '&#9825';
 
     const p = document.createElement('p');
     p.setAttribute('class', 'cardboard-likes');
@@ -38,7 +37,7 @@ const createCards = (commentPopup, popupWrapper, cardboards) => {
     button2.setAttribute('id', 'showPopup');
     button2.innerHTML = 'Reservations';
 
-    div2.appendChild(img2);
+    div2.appendChild(buttonHeart);
     div2.appendChild(p);
     div1.appendChild(h3);
     div1.appendChild(div2);

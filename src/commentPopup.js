@@ -1,5 +1,5 @@
 import getSingleShow from './getSingleShow.js';
-import InvolvementApi from './involvementApi.js';
+import InvolvementApi from './InvolvementApi.js';
 import placeholderImg from '../assets/poster-placeholder.png';
 
 class CommentsPopup {
@@ -19,16 +19,22 @@ class CommentsPopup {
     const show = await getSingleShow(showID);
     const showDetails = popupWrapper.querySelector('#show-details');
     const postCommentBtn = popupWrapper.querySelector('#comment-btn');
+    const commentsCounter = popupWrapper.querySelector('#comments-counter');
 
-    postCommentBtn.addEventListener('click', async (e) => {
+    await this.updateCounter(showID, commentsCounter);
+
+    const postComment = async (e) => {
       e.preventDefault();
       const name = popupWrapper.querySelector('#comment-name');
       const msg = popupWrapper.querySelector('#comment-msg');
       await this.involvementApi.postComment(showID, name.value, msg.value);
+      await this.populateComments(showID, popupWrapper);
       name.value = '';
       msg.value = '';
-    });
+      await this.updateCounter(showID, commentsCounter);
+    };
 
+    postCommentBtn.onclick = postComment;
     popupWrapper.querySelector('#show-poster').src = show.image.medium;
     popupWrapper.querySelector('#show-title').textContent = show.name;
     showDetails.querySelector(':nth-child(1)').innerHTML = `Premiered:<br>${show.premiered}`;
@@ -61,6 +67,11 @@ class CommentsPopup {
   closePopup = (popupWrapper, cardboards) => {
     popupWrapper.classList.add('hide');
     cardboards.classList.remove('hide');
+  };
+
+  updateCounter = async (showID, commentsCounter) => {
+    const comments = await this.involvementApi.getComments(showID);
+    commentsCounter.textContent = comments.length;
   };
 
   createListItem = (date, name, msg) => {
