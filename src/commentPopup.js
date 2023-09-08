@@ -19,7 +19,9 @@ class CommentsPopup {
     const show = await getSingleShow(showID);
     const showDetails = popupWrapper.querySelector('#show-details');
     const postCommentBtn = popupWrapper.querySelector('#comment-btn');
+    const commentsCounter = popupWrapper.querySelector('#comments-counter');
 
+    await this.updateCounter(showID, commentsCounter);
     postCommentBtn.addEventListener('click', async (e) => {
       e.preventDefault();
       const name = popupWrapper.querySelector('#comment-name');
@@ -28,6 +30,7 @@ class CommentsPopup {
       await this.populateComments(showID, popupWrapper);
       name.value = '';
       msg.value = '';
+      await this.updateCounter(showID, commentsCounter);
     });
 
     popupWrapper.querySelector('#show-poster').src = show.image.medium;
@@ -57,12 +60,16 @@ class CommentsPopup {
         this.createListItem(comment.creation_date, comment.username, comment.comment),
       );
     });
-
   };
 
   closePopup = (popupWrapper, cardboards) => {
     popupWrapper.classList.add('hide');
     cardboards.classList.remove('hide');
+  };
+
+  updateCounter = async (showID, commentsCounter) => {
+    const comments = await this.involvementApi.getComments(showID);
+    commentsCounter.textContent = comments.length;
   };
 
   createListItem = (date, name, msg) => {
