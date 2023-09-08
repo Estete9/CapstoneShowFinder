@@ -39,6 +39,7 @@ const reservations = () => {
 
       reservationsContainer.innerHTML = html;
     } else {
+      updateReservationsCounter([]);
       reservationsContainer.innerHTML = html;
     }
   };
