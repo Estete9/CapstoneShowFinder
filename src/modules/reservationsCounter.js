@@ -1,1 +1,3 @@
-export const reservationsCounter = (reservations) => reservations.length;
+const reservationsCounter = (reservations) => reservations.length;
+
+export default reservationsCounter;
