@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-class InvolvementApi {
+class involvementApi {
   constructor() {
     this.appId = 'G291qOZJqU5Pic49OeDp';
     this.baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
@@ -83,7 +83,6 @@ class InvolvementApi {
 
   postComment = async (id, name, msg) => {
     console.log('posting score...');
-    console.log(`${this.baseUrl + this.endPoints.comments}`);
     try {
       const response = await fetch(`${this.baseUrl + this.endPoints.comments}`, {
         method: 'POST',
@@ -110,4 +109,4 @@ class InvolvementApi {
   postReservation = () => {};
 }
 
-export default InvolvementApi;
+export default involvementApi;

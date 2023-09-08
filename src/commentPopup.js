@@ -20,15 +20,17 @@ class CommentsPopup {
     const showDetails = popupWrapper.querySelector('#show-details');
     const postCommentBtn = popupWrapper.querySelector('#comment-btn');
 
-    postCommentBtn.addEventListener('click', async (e) => {
+    const postComment = async (e) => {
       e.preventDefault();
       const name = popupWrapper.querySelector('#comment-name');
       const msg = popupWrapper.querySelector('#comment-msg');
       await this.involvementApi.postComment(showID, name.value, msg.value);
+      await this.populateComments(showID, popupWrapper);
       name.value = '';
       msg.value = '';
-    });
+    };
 
+    postCommentBtn.onclick = postComment;
     popupWrapper.querySelector('#show-poster').src = show.image.medium;
     popupWrapper.querySelector('#show-title').textContent = show.name;
     showDetails.querySelector(':nth-child(1)').innerHTML = `Premiered:<br>${show.premiered}`;
@@ -74,3 +76,4 @@ class CommentsPopup {
 }
 
 export default CommentsPopup;
+
