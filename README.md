@@ -1,10 +1,10 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <img src="./assets/logo.png" alt="logo" width="140"  height="auto" />
+  <img src="./assets/main_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>YOUR-PROJECT-NAME-HERE</b></h3>
+  <h3><b>Show Finder - Capstone</b></h3>
 
 </div>
 
@@ -16,6 +16,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [Demo](#key-features)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -31,9 +32,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 WEBPACK TEMPLATE <a name="about-project"></a>
+# 📖 Show Finder <a name="about-project"></a>
 
-**WEBPACK TEMPLATE** This template is focused on being a base project using Webpack and all the core libraries needed.
+**Show Finder** Is a single-page webpage that consumes TVMazeAPI and InvolvementAPI. It uses the shows and involvement information to display it on the main screen or in the popups for the comments or the reservations.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -64,6 +65,9 @@
 - **[Menu functionality using JavaScript]**
 - **[Use of modules and libraries]**
 
+## Live Demo
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -85,22 +89,28 @@ To run this project you need:
 Make sure you have VSCode, npm, and Node installed
 
 ### Install
+
 In the root folder, run the script `npm install` to install all the libraries necessary.
 
 ### Usage
+
 #### Webpack
-Run the scripts: 
+
+Run the scripts:
+
 - `npm run build` to have Webpack build the `dist` folder
 - `npm run watch-webpack` to only have Webpack watch your files or
 - `npm run watch` to watch the tests and Webpack changes
-#### Live Demo
-- Always run the script `npm run build-start` to see a live version of the project and be sure that all your assets and files are bundled by Webpack
 
+#### Live Demo
+
+- Always run the script `npm run build-start` to see a live version of the project and be sure that all your assets and files are bundled by Webpack
 
 ### Run tests
 
-Use the scripts: 
-- `npm run watch-jest` to only watch your tests with Jest or 
+Use the scripts:
+
+- `npm run watch-jest` to only watch your tests with Jest or
 - `npm run watch` to watch the tests and Webpack changes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -114,6 +124,17 @@ Use the scripts:
 - GitHub: [@Estete9](https://github.com/Estete9)
 - Twitter: [@NaughTban](https://twitter.com/NaughTban)
 - LinkedIn: [Esteban Palacios](https://www.linkedin.com/in/esteban-palacios-5030a772/)
+
+👤 **M Alvee**
+
+- GitHub: [@0xMALVEE](https://github.com/0xMALVEE)
+- Twitter: [@alveedev](https://twitter.com/alveedev)
+- LinkedIn: [M Alvee](https://www.linkedin.com/in/0xmalvee/)
+
+👤 **Alejandro Maggioni**
+
+- GitHub: [@alex1779](https://github.com/alex1779)
+- LinkedIn: [Alejandro Maggioni](https://www.linkedin.com/in/alejandro-maggioni-086678b5/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,7 +160,6 @@ Feel free to check the [issues page UPDATE URL HERE](https://github.com/Estete9/
 
 ## ⭐️ Show your support <a name="support"></a>
 
-
 If you like this project remember to star and share it 🥳️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -147,7 +167,6 @@ If you like this project remember to star and share it 🥳️
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
 
 - ACKNOWLEDGMENTS TO CREATIVE LICENSE AND OTHERS
 
