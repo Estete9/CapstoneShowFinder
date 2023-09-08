@@ -45,13 +45,13 @@ const reservations = () => {
   };
 
   const createReservations = async (id) => {
-    const form = document.getElementById('res-form');
-
     const resNameInput = document.getElementById('res-name');
     const startDateInput = document.getElementById('start-date');
     const endDateInput = document.getElementById('end-date');
 
-    form.addEventListener('submit', async (e) => {
+    const reserveButton = document.getElementById('reserve-button');
+
+    reserveButton.onclick = async (e) => {
       e.preventDefault();
       const username = resNameInput.value;
       const start = startDateInput.value;
@@ -82,7 +82,7 @@ const reservations = () => {
       } catch (error) {
         throw new Error('Error found');
       }
-    });
+    };
   };
 
   function showMoviePopup(e) {
