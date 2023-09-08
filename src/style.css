@@ -115,8 +115,10 @@ body {
   justify-items: center;
 }
 
-.cardboard-heart-image {
-  width: 40%;
+.cardboard-heart-button {
+  width: 2.5vw;
+  height: 2.5vw;
+  font-size: 2rem;
 }
 
 .cardboard-likes {
