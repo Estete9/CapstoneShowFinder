@@ -1,5 +1,5 @@
 import getSingleShow from './getSingleShow.js';
-import InvolvementApi from './involvementApi.js';
+import InvolvementApi from './InvolvementApi.js';
 import placeholderImg from '../assets/poster-placeholder.png';
 
 class CommentsPopup {
@@ -20,9 +20,9 @@ class CommentsPopup {
     const showDetails = popupWrapper.querySelector('#show-details');
     const postCommentBtn = popupWrapper.querySelector('#comment-btn');
     const commentsCounter = popupWrapper.querySelector('#comments-counter');
-    
+
     await this.updateCounter(showID, commentsCounter);
-    
+
     const postComment = async (e) => {
       e.preventDefault();
       const name = popupWrapper.querySelector('#comment-name');
@@ -85,4 +85,3 @@ class CommentsPopup {
 }
 
 export default CommentsPopup;
-
