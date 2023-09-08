@@ -39,7 +39,50 @@ const reservations = () => {
       updateReservationsCounter(data);
 
       reservationsContainer.innerHTML = html;
+    } else {
+      reservationsContainer.innerHTML = html;
     }
+  };
+
+  const createReservations = async (id) => {
+    const form = document.getElementById('res-form');
+
+    const resNameInput = document.getElementById('res-name');
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = resNameInput.value;
+      const start = startDateInput.value;
+      const end = endDateInput.value;
+
+      try {
+        const postData = {
+          item_id: id,
+          username,
+          date_start: start,
+          date_end: end,
+        };
+
+        const requestOptions = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(postData),
+        };
+        const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/NgaD7H5IJk0fYcqyyaMX/reservations', requestOptions);
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        getReservations(id);
+      } catch (error) {
+        throw new Error('Error found');
+      }
+    });
   };
 
   function showMoviePopup(e) {
@@ -48,6 +91,8 @@ const reservations = () => {
     const currentShow = shows.filter((show) => show.id === parseInt(id, 10))[0];
 
     getReservations(id);
+
+    createReservations(id);
 
     movieTitleElement.innerHTML = currentShow.name;
     movieSummaryElement.innerHTML = `<strong>Summary:</strong> ${currentShow.summary.slice(0, 80)}...`;
