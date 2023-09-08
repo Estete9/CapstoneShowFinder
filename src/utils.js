@@ -16,16 +16,22 @@ const getAllShows = async () => {
 };
 
 const result = await getAllShows();
-const qtyShows = result.length;
 
 itemsCounters(result.length);
 
 const getRandomInt = (max) => Math.floor(Math.random() * max);
 
-const selectedIndex = [];
-for (let i = 0; i < 9; i += 1) {
-  selectedIndex.push(getRandomInt(qtyShows));
-}
+const generateIndex = (items, max) => {
+  const selectedIndex = [];
+  while (selectedIndex.length < items) {
+    const index = getRandomInt(max);
+    if (!selectedIndex.includes(index)) {
+      selectedIndex.push(index);
+    }
+  }
+  return selectedIndex;
+};
+const selectedIndex = generateIndex(9, result.length);
 
 const selectedShows = [];
 selectedIndex.forEach((element) => selectedShows.push(result[element]));
