@@ -20,9 +20,10 @@ class CommentsPopup {
     const showDetails = popupWrapper.querySelector('#show-details');
     const postCommentBtn = popupWrapper.querySelector('#comment-btn');
     const commentsCounter = popupWrapper.querySelector('#comments-counter');
-
+    
     await this.updateCounter(showID, commentsCounter);
-    postCommentBtn.addEventListener('click', async (e) => {
+    
+    const postComment = async (e) => {
       e.preventDefault();
       const name = popupWrapper.querySelector('#comment-name');
       const msg = popupWrapper.querySelector('#comment-msg');
@@ -31,8 +32,9 @@ class CommentsPopup {
       name.value = '';
       msg.value = '';
       await this.updateCounter(showID, commentsCounter);
-    });
+    };
 
+    postCommentBtn.onclick = postComment;
     popupWrapper.querySelector('#show-poster').src = show.image.medium;
     popupWrapper.querySelector('#show-title').textContent = show.name;
     showDetails.querySelector(':nth-child(1)').innerHTML = `Premiered:<br>${show.premiered}`;
