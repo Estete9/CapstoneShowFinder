@@ -1,3 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: bisque;
+  font-family: 'Lato', sans-serif;
+}
+
+.hide {
+  display: none;
+}
+
+#show-header-section {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+#show-poster {
+  max-height: 200px;
+  width: auto;
+  top: 50%;
+  left: 50%;
+}
+
+#close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  cursor: pointer;
+}
+
+#show-description-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#show-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 50px;
+}
+
+#show-details .show-detail-item {
+  text-align: center;
+  max-width: 145px;
+}
+
+#show-comments-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#post-comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+}
+
+#comment-msg {
+  resize: none;
+}
+
+#cardboards {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
+
+.cardboard {
+  width: 70%;
+  display: grid;
+  row-gap: 10px;
+  justify-items: center;
+}
+
+.cardboard-image {
+  width: 50%;
+  align-self: center;
+}
+
+.cardboard-superior {
+  width: 50%;
+  display: flex;
+}
+
+.cardboard-title {
+  width: 100%;
+  margin: 0;
+}
+
+.cardboard-inferior {
+  width: 50%;
+  display: grid;
+  justify-items: center;
+}
+
+.cardboard-heart-button {
+  width: 2.5vw;
+  height: 2.5vw;
+  font-size: 2rem;
+}
+
+.cardboard-likes {
+  margin: 1vw 0 0 0;
+}
+
+.comments-button {
+  width: 15vw;
+  height: 3vw;
+}
+
+.reservations-button {
+  width: 17vw;
+  height: 3vw;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  padding-bottom: 30px;
+}
+
+#menu {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+}
+
+#header-logo {
+  height: 70px;
+  width: auto;
+}
+
+.menu-item {
+  font-size: 1.1rem;
+}
+
+#comments-popup-wrapper {
+  display: block;
+  margin: 30px 30px;
+  background-color: #d6d6d6db;
+}
+
+#comments-popup-wrapper.hide {
+  display: none;
+}
+
+#cardboards.hide {
+  display: none;
+}
+
+#comments-popup-wrapper > section {
+  gap: 20px;
+  padding: 15px 20px;
+}
+
+#comments-popup-wrapper > #show-header-section {
+  padding: 35px 20px;
+}
+
+#post-comment-form > * {
+  border: 1px solid black;
+  padding: 6px 8px;
+}
+
+#post-comment-form > :nth-child(1) {
+  border: none;
+  align-self: center;
+}
+
+.menu-item.selected {
+  text-decoration: underline;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* -----------------------------------------------------Start  of desktop styling ------------------------------------------------------------------------------------ */
+@media screen and (width >= 768px) {
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15%;
+    padding-bottom: 30px;
+  }
+
+  #post-comment-form {
+    padding: 0 30%;
+  }
+
+  #show-poster {
+    max-height: 300px;
+  }
+
+  #comments-popup-wrapper {
+    margin: 30px 25%;
+    padding: 10px;
+  }
 }

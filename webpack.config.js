@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -13,6 +15,14 @@ module.exports = {
     liveReload: true,
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'assets', // Source folder or file
+          to: 'assets', // Destination folder
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),

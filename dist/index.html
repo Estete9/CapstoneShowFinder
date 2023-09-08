@@ -3,10 +3,126 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wbpack Exercise</title>
+    <title>Show Finder - find your favorite show</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  
   <script defer src="index.js"></script></head>
   <body>
-    <h1>Hello webpack!</h1>
-    <h2>this is test again right now?</h2>
+    <header class="bg-gray-800 text-white py-4 text-center">
+      <div>
+        <img src="assets/main_logo.png" id="header-logo" alt="logo" />
+      </div>
+      <ul id="menu">
+        <li class="menu-item selected">shows <span>(100)</span></li>
+      </ul>
+    </header>
+
+    <main id="main-section" class="my-[100px]">
+
+
+      <!-- cardboards -->
+      <ul id="cardboards"></ul>
+      <!-- cardboards -->
+      <!-- comments pop-up -->
+      <article id="comments-popup-wrapper" class="hide">
+        <section id="show-header-section">
+          <img id="show-poster" alt="show's poster" />
+          <img id="close-btn" alt="pop-up close button" />
+        </section>
+        <section id="show-description-section">
+          <h1 id="show-title" class="section-title"></h1>
+          <ul id="show-details">
+            <li class="show-detail-item"></li>
+            <li class="show-detail-item"></li>
+            <li class="show-detail-item"></li>
+            <li class="show-detail-item"></li>
+          </ul>
+        </section>
+        <section id="show-comments-section">
+          <h3 id="comments" class="section-title">Comments (<span id="comments-counter">0</span>)</h3>
+          <ul id="comments-list">
+            <!-- Dynamically populated comments -->
+          </ul>
+        </section>
+        <section id="post-comment-section">
+          <form id="post-comment-form" action="">
+            <h3 id="post-comment-title" class="section-title">Add a comment</h3>
+            <input id="comment-name" type="text" placeholder="Your name" required />
+            <textarea
+              name="msg-content"
+              id="comment-msg"
+              cols="30"
+              rows="4"
+              placeholder="Your insights..."
+              required
+            ></textarea>
+            <button id="comment-btn">Comment</button>
+          </form>
+        </section>
+      </article>
+      <!-- comments pop-up -->
+    </main>
+
+    
+    <div id="moviePopup" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 hidden">
+      <div class="bg-white w-[500px] h-[90vh] overflow-scroll p-4 md:p-8 max-w-screen-lg rounded-lg shadow-lg overflow-hidden relative"> <!-- Added relative -->
+        <button id="closePopup" class="absolute top-2 right-2 md:top-4 md:right-4 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full z-10"> <!-- Added z-10 for stacking order -->
+          X
+        </button>
+        <div class="">
+          <div class="flex justify-center">
+            <img id="res-movie-image" src="https://static.tvmaze.com/uploads/images/original_untouched/213/532575.jpg"  alt="Movie Poster" class="h-[400px] w-auto rounded-lg">
+          </div>
+          <div class="">
+            <h2 class="text-2xl font-semibold mb-2 text-center my-4" id="res-movie-title">Movie Title</h2>
+            <div class=" grid grid-cols-1 md:grid-cols-2  gap-2">
+              <p class="text-gray-700 mb-2" id="res-movie-summary">Summary: Movie description goes here.</p>
+              <p class="text-gray-700 mb-2" id="res-movie-genres">Genres: Action, Adventure</p>
+              <p class="text-gray-700 mb-2" id="res-movie-schedule">Schedule: August 15, 2023 - 7:30 PM</p>
+              <p class="text-gray-700 mb-2" id="res-movie-language">Language: English</p>
+              <p class="text-gray-700 mb-2" id="res-movie-tv">TV: HBO</p>
+            </div>
+           
+          </div>
+          <div>
+            <div class="text-center"> <strong id="reservations-counter">Revervations (0)</strong></div>
+            
+            <div id="reservations-container">
+           
+            </div>
+            
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow-md my-4">
+            <div class="text-center mb-4">
+                <strong class="text-xl">Add a Reservation</strong>
+            </div>
+            <form action="" id="res-form">
+              <input id="res-name" required class="w-full p-2 mb-4 border rounded-lg" type="text" placeholder="Your name">
+              <label>Start Date:</label>
+              <input id="start-date" required class="w-full p-2 mb-4 border rounded-lg" type="date" placeholder="Start Date (mm/dd/yyyy)" id="start-date">
+              <label>End Date:</label>
+              <input id="end-date" required class="w-full p-2 mb-4 border rounded-lg" type="date" placeholder="End Date (mm/dd/yyyy)" id="end-date">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Reserve
+            </button>
+            </form>
+         
+          
+        </div>
+        
+        </div>
+      </div>
+    </div>
+    
+
+    <footer class="bg-gray-800 text-white py-4 text-center">
+      <div class="container mx-auto">
+        <p class="text-sm">
+          Created by <strong class="font-bold">Alvee</strong>,
+          <strong class="font-bold">Esteban</strong>, and
+          <strong class="font-bold">Alex</strong> under MIT License
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
