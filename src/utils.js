@@ -1,3 +1,5 @@
+import itemsCounters from './items_counter.js';
+
 const fullPath = 'https://api.tvmaze.com/shows';
 
 const getAllShows = async () => {
@@ -16,6 +18,8 @@ const getAllShows = async () => {
 const result = await getAllShows();
 const qtyShows = result.length;
 
+itemsCounters(result.length);
+
 const getRandomInt = (max) => Math.floor(Math.random() * max);
 
 const selectedIndex = [];
@@ -26,12 +30,7 @@ for (let i = 0; i < 9; i += 1) {
 const selectedShows = [];
 selectedIndex.forEach((element) => selectedShows.push(result[element]));
 
-const imgCards = document.getElementsByClassName('cardboard-image');
-const titleCards = document.getElementsByClassName('cardboard-title');
-const liCards = document.getElementsByClassName('cardboard');
-const reservationsBtn = document.getElementsByClassName('reservations-button');
-
-const populateCards = () => {
+const populateCards = (titleCards, imgCards, liCards, reservationsBtn) => {
   for (let i = 0; i < titleCards.length; i += 1) {
     titleCards[i].innerHTML = selectedShows[i].name;
     imgCards[i].src = selectedShows[i].image.medium;

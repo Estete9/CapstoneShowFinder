@@ -32,6 +32,7 @@ const reservations = () => {
     }
   };
 
+
   const createReservations = async (id) => {
     const form = document.getElementById('res-form');
 
@@ -73,6 +74,7 @@ const reservations = () => {
     });
   };
 
+
   function showMoviePopup(e) {
     const id = e.target.getAttribute('show_id');
 
@@ -80,7 +82,9 @@ const reservations = () => {
 
     getReservations(id);
 
+
     createReservations(id);
+
 
     movieTitleElement.innerHTML = currentShow.name;
     movieSummaryElement.innerHTML = `<strong>Summary:</strong> ${currentShow.summary.slice(0, 80)}...`;

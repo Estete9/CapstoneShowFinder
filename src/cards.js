@@ -1,5 +1,4 @@
-const createCards = () => {
-  const cardboards = document.getElementById('cardboards');
+const createCards = (commentPopup, popupWrapper, cardboards) => {
   for (let i = 0; i < 9; i += 1) {
     const li = document.createElement('li');
     li.setAttribute('class', 'cardboard');
@@ -27,9 +26,12 @@ const createCards = () => {
     p.setAttribute('class', 'cardboard-likes');
     p.innerHTML = '0 likes';
 
-    const button1 = document.createElement('button');
-    button1.setAttribute('class', 'comments-button');
-    button1.innerHTML = 'Comments';
+    const buttonComments = document.createElement('button');
+    buttonComments.setAttribute('class', 'comments-button');
+    buttonComments.innerHTML = 'Comments';
+    buttonComments.addEventListener('click', (e) => {
+      commentPopup.openPopup(e, popupWrapper, cardboards);
+    });
 
     const button2 = document.createElement('button');
     button2.setAttribute('class', 'reservations-button');
@@ -42,7 +44,7 @@ const createCards = () => {
     div1.appendChild(div2);
     li.appendChild(img1);
     li.appendChild(div1);
-    li.appendChild(button1);
+    li.appendChild(buttonComments);
     li.appendChild(button2);
     cardboards.appendChild(li);
   }
