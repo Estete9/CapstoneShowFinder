@@ -1,5 +1,5 @@
 import getSingleShow from './getSingleShow.js';
-import InvolvementApi from './involvementApi.js';
+import InvolvementApi from './InvolvementApi.js';
 import placeholderImg from '../assets/poster-placeholder.png';
 
 class CommentsPopup {
