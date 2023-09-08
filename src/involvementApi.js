@@ -13,7 +13,33 @@ class InvolvementApi {
 
   makeApp = () => {};
 
-  getLikes = () => {};
+  getLikes = async () => {
+    try {
+      const response = await fetch(`${this.baseUrl + this.endPoints.likes}`);
+      const responseBody = await response.json();
+      if (responseBody.error && responseBody.error.message) {
+        return [];
+      }
+
+      if (!response.ok) {
+        throw new Error('failed to retrieve comments from API');
+      }
+
+      const cardboardLikes = document.getElementsByClassName('cardboard-likes');
+      for (let i = 0; i < cardboardLikes.length; i += 1) {
+        for (let j = 0; j < responseBody.length; j += 1) {
+          const elem = cardboardLikes[i].parentElement.parentElement.parentElement.id;
+          if (responseBody[j].item_id === elem) {
+            cardboardLikes[i].innerHTML = `${responseBody[j].likes} likes`;
+          }
+        }
+      }
+
+      return responseBody;
+    } catch (error) {
+      return error.message;
+    }
+  };
 
   postLike = async (id) => {
     console.log('posting like...');
@@ -32,6 +58,7 @@ class InvolvementApi {
         throw new Error('Failed to create a post.');
       }
       console.log('like posted...');
+      this.getLikes();
     } catch (error) {
       console.error('Error creating a post:', error.message);
     }

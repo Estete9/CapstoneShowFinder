@@ -6,6 +6,7 @@ import populateCards from './utils.js';
 import reservations from './modules/reservations.js';
 import CommentsPopup from './commentPopup.js';
 import addNewLike from './addNewLike.js';
+import likesCounters from './likeCounter.js';
 
 const showPosterImg = document.getElementById('show-poster');
 const popupCloseBtn = document.getElementById('close-btn');
@@ -27,3 +28,5 @@ populateCards(titleCards, imgCards, liCards, reservationsBtn);
 reservations();
 
 addNewLike();
+
+likesCounters();
