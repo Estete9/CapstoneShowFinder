@@ -82,7 +82,6 @@ class InvolvementApi {
   };
 
   postComment = async (id, name, msg) => {
-    console.log('posting score...');
     try {
       const response = await fetch(`${this.baseUrl + this.endPoints.comments}`, {
         method: 'POST',

@@ -1,6 +1,5 @@
 import { shows } from '../utils.js';
-
-const reservationsCounter = (reservations) => reservations.length;
+import reservationsCounter from './reservationsCounter.js';
 
 const reservations = () => {
   const closePopupButton = document.getElementById('closePopup');
