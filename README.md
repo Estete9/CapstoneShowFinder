@@ -66,7 +66,7 @@
 - **[Use of modules and libraries]**
 
 ## Live Demo
-
+Visit us [here](https://estete9.github.io/CapstoneShowFinder/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
