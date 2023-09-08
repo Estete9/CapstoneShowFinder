@@ -29,6 +29,8 @@ const reservations = () => {
       });
 
       reservationsContainer.innerHTML = html;
+    } else {
+      reservationsContainer.innerHTML = html;
     }
   };
 
