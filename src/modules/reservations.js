@@ -1,5 +1,7 @@
 import { shows } from '../utils.js';
 
+const reservationsCounter = (reservations) => reservations.length;
+
 const reservations = () => {
   const closePopupButton = document.getElementById('closePopup');
   const moviePopup = document.getElementById('moviePopup');
@@ -17,6 +19,12 @@ const reservations = () => {
 
   const reservationsContainer = document.getElementById('reservations-container');
 
+  const updateReservationsCounter = (reservations) => {
+    const counter = document.getElementById('reservations-counter');
+
+    counter.textContent = `Revervations (${reservationsCounter(reservations)})`;
+  };
+
   const getReservations = async (id) => {
     const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/NgaD7H5IJk0fYcqyyaMX/reservations?item_id=${id}`);
     const data = await res.json();
@@ -27,6 +35,8 @@ const reservations = () => {
       data.forEach((reservations) => {
         html += `<p> ${reservations.date_start} - ${reservations.date_end} by ${reservations.username}</p>`;
       });
+
+      updateReservationsCounter(data);
 
       reservationsContainer.innerHTML = html;
     } else {
