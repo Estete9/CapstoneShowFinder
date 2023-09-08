@@ -29,7 +29,7 @@ const reservations = () => {
       });
 
       reservationsContainer.innerHTML = html;
-    }else { 
+    } else {
       reservationsContainer.innerHTML = html;
     }
   };

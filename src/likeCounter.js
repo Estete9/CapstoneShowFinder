@@ -1,4 +1,4 @@
-import InvolvementApi from './involvementApi.js';
+import InvolvementApi from './InvolvementApi.js';
 
 const likesCounters = async () => {
   const involvementApi = new InvolvementApi();

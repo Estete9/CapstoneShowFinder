@@ -1,4 +1,4 @@
-import InvolvementApi from './involvementApi.js';
+import InvolvementApi from './InvolvementApi.js';
 
 const addNewLike = () => {
   const heartButtons = document.getElementsByClassName('cardboard-heart-button');

@@ -1,5 +1,5 @@
 import getSingleShow from './getSingleShow.js';
-import InvolvementApi from './involvementApi.js';
+import InvolvementApi from './InvolvementApi.js';
 import placeholderImg from '../assets/poster-placeholder.png';
 
 class CommentsPopup {
@@ -19,6 +19,9 @@ class CommentsPopup {
     const show = await getSingleShow(showID);
     const showDetails = popupWrapper.querySelector('#show-details');
     const postCommentBtn = popupWrapper.querySelector('#comment-btn');
+    const commentsCounter = popupWrapper.querySelector('#comments-counter');
+
+    await this.updateCounter(showID, commentsCounter);
 
     const postComment = async (e) => {
       e.preventDefault();
@@ -28,6 +31,7 @@ class CommentsPopup {
       await this.populateComments(showID, popupWrapper);
       name.value = '';
       msg.value = '';
+      await this.updateCounter(showID, commentsCounter);
     };
 
     postCommentBtn.onclick = postComment;
@@ -65,6 +69,11 @@ class CommentsPopup {
     cardboards.classList.remove('hide');
   };
 
+  updateCounter = async (showID, commentsCounter) => {
+    const comments = await this.involvementApi.getComments(showID);
+    commentsCounter.textContent = comments.length;
+  };
+
   createListItem = (date, name, msg) => {
     const comment = document.createElement('li');
     comment.classList.add('comment-list-item');
@@ -76,4 +85,3 @@ class CommentsPopup {
 }
 
 export default CommentsPopup;
-
