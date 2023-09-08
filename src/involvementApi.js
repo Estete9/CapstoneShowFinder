@@ -15,7 +15,27 @@ class InvolvementApi {
 
   getLikes = () => {};
 
-  postLike = () => {};
+  postLike = async (id) => {
+    console.log('posting like...');
+    console.log(`${this.baseUrl + this.endPoints.likes}`);
+    try {
+      const response = await fetch(`${this.baseUrl + this.endPoints.likes}`, {
+        method: 'POST',
+        body: JSON.stringify({
+          item_id: id,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Failed to create a post.');
+      }
+      console.log('like posted...');
+    } catch (error) {
+      console.error('Error creating a post:', error.message);
+    }
+  };
 
   getComments = async (showId) => {
     try {
