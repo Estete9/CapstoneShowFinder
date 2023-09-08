@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-class involvementApi {
+class InvolvementApi {
   constructor() {
     this.appId = 'G291qOZJqU5Pic49OeDp';
     this.baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
