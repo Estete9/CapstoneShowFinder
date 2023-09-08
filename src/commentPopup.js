@@ -25,6 +25,7 @@ class CommentsPopup {
       const name = popupWrapper.querySelector('#comment-name');
       const msg = popupWrapper.querySelector('#comment-msg');
       await this.involvementApi.postComment(showID, name.value, msg.value);
+      await this.populateComments(showID, popupWrapper);
       name.value = '';
       msg.value = '';
     });
@@ -56,6 +57,7 @@ class CommentsPopup {
         this.createListItem(comment.creation_date, comment.username, comment.comment),
       );
     });
+
   };
 
   closePopup = (popupWrapper, cardboards) => {
@@ -74,3 +76,4 @@ class CommentsPopup {
 }
 
 export default CommentsPopup;
+
